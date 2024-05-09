@@ -27,7 +27,7 @@ Execute the C Program for the desired output.
 
 
 ## OUTPUT
-
+![alt text](<Screenshot from 2024-04-14 15-58-00.png>)
 
 # RESULT:
 The program is executed successfully.
