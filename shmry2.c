@@ -4,7 +4,7 @@
 #include <string.h>
 #include <sys/shm.h>
 
-#define TEXT_SZ 2048
+#define TEXT_SZ 2048 
 
 struct shared_use_st {
     int written_by_you;
@@ -13,8 +13,8 @@ struct shared_use_st {
 
 int main() {
     int running = 1;
-    void *shared_memory = (void *)0;
-    struct shared_use_st *shared_stuff;
+    void *shared_memory = (void *)0; 
+    struct shared_use_st *shared_stuff; 
     char buffer[BUFSIZ];
     int shmid;
 
@@ -23,18 +23,16 @@ int main() {
         perror("shmget");
         exit(EXIT_FAILURE);
     }
-
-    printf("Shared memory id = %d\n", shmid);
+    printf("Shared memory id = %d \n", shmid);
 
     shared_memory = shmat(shmid, (void *)0, 0);
     if (shared_memory == (void *)-1) {
         perror("shmat");
         exit(EXIT_FAILURE);
     }
+    printf("Memory attached at %p\n", shared_memory); 
 
-    printf("Memory attached at %p\n", shared_memory);
-
-    shared_stuff = (struct shared_use_st *)shared_memory;
+    shared_stuff = (struct shared_use_st *)shared_memory; 
 
     while (running) {
         while (shared_stuff->written_by_you == 1) {
