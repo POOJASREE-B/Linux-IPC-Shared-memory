@@ -159,45 +159,14 @@ int main() {
 }
 
 ```
-=======
-#include <stdio.h>
-#include <sys/ipc.h>
-#include <sys/shm.h>
-
-int main()
-{
-	// Generate a unique key using ftok
-	key_t key = ftok("shmfile", 65);
->>>>>>> 49db02589ea22cd28c8b4fd98db62f8517b41673
-
-	// Get an identifier for the shared memory segment using shmget
-	int shmid = shmget(key, 1024, 0666 | IPC_CREAT);
-      printf("Shared memory id = %d \n",shmid);
-// Attach to the shared memory segment using shmat
-	char* str = (char*)shmat(shmid, (void*)0, 0);
-	
-    printf("Write Data : ");
-	fgets(str, 1024, stdin);
-
-	printf("Data written in memory: %s\n", str);
-
-	// Detach from the shared memory segment using shmdt
-	shmdt(str);
-
-	return 0;
-}
-```
 
 
 
 ## OUTPUT
-<<<<<<< HEAD
+
 ![alt text](<Screenshot from 2024-05-14 12-38-32.png>)
 ![alt text](<Screenshot from 2024-05-14 12-40-55.png>)
-=======
-![Screenshot from 2024-04-14 15-58-00](https://github.com/POOJASREE-B/Linux-IPC-Shared-memory/assets/144362256/f5cb595d-e071-4b10-b2cc-fb4932f027ee)
 
->>>>>>> 49db02589ea22cd28c8b4fd98db62f8517b41673
 
 # RESULT:
 The program is executed successfully.
